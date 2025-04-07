@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Virtual Try-On</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-8">Admin Panel</h1>
+        
+        <!-- Upload Section -->
+        <div class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-xl font-semibold mb-4">Upload Items</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Item Type</label>
+                    <select id="itemType" class="w-full p-2 border rounded">
+                        <option value="topwear">Topwear</option>
+                        <option value="bottomwear">Bottomwear</option>
+                        <option value="accessory">Accessory</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                    <input type="text" id="itemCategory" class="w-full p-2 border rounded" placeholder="e.g., T-Shirts, Necklaces">
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Upload Image</label>
+                <div class="flex items-center gap-4">
+                    <div class="w-32 h-32 bg-gray-200 flex items-center justify-center rounded">
+                        <p class="text-gray-500 text-sm">Preview</p>
+                    </div>
+                    <div>
+                        <input type="file" id="itemUpload" accept="image/*" class="hidden">
+                        <button id="uploadBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            <i class="fas fa-upload mr-2"></i>Select Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="saveItemBtn" class="mt-6 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+                Save Item
+            </button>
+        </div>
+
+        <!-- Inventory Management -->
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4">Current Inventory</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Preview</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryList" class="bg-white divide-y divide-gray-200">
+                        <!-- Inventory items will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
